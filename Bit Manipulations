@@ -83,6 +83,7 @@ int main()
 	// }
  }
 =====================================================================================================================
+elements with and operation with in the range
 #include<bits/stdc++.h>
 using namespace std;
 int main()
