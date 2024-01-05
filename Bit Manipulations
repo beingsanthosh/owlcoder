@@ -82,3 +82,71 @@ int main()
 	// 	cout<<endl;
 	// }
  }
+=====================================================================================================================
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int n;
+	cin>>n;
+	vector<int>arr;
+	for(int i=0;i<n;i++)
+	{
+		int x;
+		cin>>x;
+		arr.push_back(x);
+	}
+	int q;
+	cin>>q;
+	while(q--)
+	{
+		int l,r;
+		cin>>l>>r;
+		int row=n,col=8;
+		vector<vector<int>>vet;
+		for(int i=0;i<n;i++)
+		{
+		    vector<int>v;
+		    for(int j=7;j>=0;j--)
+		    {
+		        if((arr[i])&(1<<j))
+		        {
+		            v.push_back(1);
+		        }
+		        else
+		        {
+		            v.push_back(0);
+		        }
+		        
+		    }
+		    vet.push_back(v);
+		    v.clear();
+		}
+		for(int i=1;i<n;i++)
+		{
+		    for(int j=0;j<8;j++)
+		    {
+		    	vet[i][j]=vet[i-1][j]+vet[i][j];
+		    }
+		}
+		int k=r-l+1;
+		int ans=0;
+		for(int i=0;i<8;i++)
+		{
+			int m=vet[k][i];
+			if(m>=k)
+			{
+				ans+=(1<<i);
+			}
+		}
+		cout<<ans<<endl;
+		for(auto i:vet)
+		{
+		    for(auto it:i)
+		    {
+		        cout<<it<<" ";
+		    }
+		    cout<<endl;
+		}
+	}
+}
