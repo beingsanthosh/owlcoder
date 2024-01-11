@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+long long int N=100000007;
+int sieve[100000007];
+void create()
+{
+	sieve[0]=0;
+	sieve[1]=1;
+	for(int i=2;i<=N;i++)
+	{
+		sieve[i]=1;
+	}
+	for(int i=2;i*i<=N;i++)
+	{
+		if(sieve[i]==1)
+		{
+			for(int j=i*i;j<=N;j+=i)
+			{
+				sieve[i]=0;
+			}
+		}
+	}
+}
+void primesupto(int r)
+{
+	vector<int>vet;
+	for(int i=2;i*i<=r;i++)
+	{
+		if(sieve[i]==1)
+		{
+			vet.push_back(i);
+		}
+	}
+	for(int i=0;i<vet.size();i++)
+	{
+
+	}
+}
+int main()
+{
+	create();
+	int l,r;
+	cin>>l>>r;
+	primesupto(r);
+}
